@@ -1,0 +1,42 @@
+ 
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h2 style="text-align: center;">Create a New Food Festival</h2>
+        
+        <div style="width: 30%; margin: 25px auto;">
+            
+            <p style="text-align: center;">Fill the entries required to add new Food Festival</p>
+            
+            <form action="/foodFestival" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="FestName" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="FestLocation" placeholder="Location">
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control" type="number" name="FestPrice" placeholder="Price" min="0.01" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="FestImage" placeholder="Image URL">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="FestDescription" placeholder="Description">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn-btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            
+            <a href="/foodFestival">Go Back</a>
+        </div>
+    </div>
+</div>
+<%- include ("../partials/footer") %>

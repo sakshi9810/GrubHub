@@ -1,0 +1,86 @@
+body {
+    background-color: #000;
+  }
+
+#landing-header{
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+#landing-header h1{
+    color: white;
+}
+
+#subheading{
+  color: white;
+}
+
+.slideshow { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li{ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite;    /*fade images in and out */
+}
+
+.slideshow li:nth-child(1) { 
+    background-image: url(https://images.dailyhive.com/20190820113857/tasteoflondon_64324934_575120416349253_6103846762035937168_n.jpg) 
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url(https://assets.blog.foodnetwork.ca/imageserve/wp-content/uploads/sites/6/2015/07/Pahiyas-Festival-Philippines/x.jpeg);
+    animation-delay: 10s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url(https://aroundtheworld.houseoftours.com/wp-content/uploads/2017/11/iStock-streetpicnic.jpeg);
+    animation-delay: 20s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url(https://www.foodanddrinkguides.co.uk/blog/wp-content/uploads/2015/09/FI-world-food-festivals1.jpg);
+    animation-delay: 30s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url(https://media1.popsugar-assets.com/files/thumbor/KlocbNIHF8gGIZYrFnYIMDSIICc/793x0:3625x2832/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/01/02/817/n/44347559/044b28685e0e3846116695.82251126_/i/best-food-festivals-in-the-world-2020.jpg);
+    animation-delay: 40s; 
+  }
+
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+
+  /* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

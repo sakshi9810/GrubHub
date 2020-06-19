@@ -1,0 +1,19 @@
+body{
+    background : lightgray;
+}
+
+.thumbnail img{
+    width: 100%;
+}
+
+#give{
+    padding: 0;
+}
+
+.thumbnail.caption-full{
+    padding: 10px;
+}
+
+#delete_form{
+    display: inline;
+}

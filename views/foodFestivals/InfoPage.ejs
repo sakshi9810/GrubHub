@@ -1,0 +1,67 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-11">
+            <div id="give" class="thumbnail">
+                <img class="img-responsive" src="<%= varFoodFest.image %>">
+                <div class="caption-full">
+                    <h4 class="pull-right">Rs.<%= varFoodFest.price%>/person</h4>
+                    <h4><a><%= varFoodFest.name %></a></h4>
+                    <p><%= varFoodFest.description %></p>
+                    <p>
+                        <em>Submitted By :-<strong><%= varFoodFest.author.username %></strong>
+                            <%= moment(varFoodFest.createdAt).fromNow() %></em>
+                    </p>
+
+                    <% if(currentUser && varFoodFest.author.id.equals(currentUser._id))
+                    
+                    { %>
+                    <a class="btn btn-xs btn-warning" href="/foodFestival/<%- varFoodFest._id %>/edit">Edit</a>
+
+                    <form id="delete_form" action="/foodFestival/<%- varFoodFest._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/foodFestival/<%= varFoodFest._id %>/comment/new">Add New
+                        Comment</a>
+                </div>
+                <hr>
+                <% varFoodFest.commentsarray.forEach(function(extractedcomment){ %>
+                <div class="row">
+                    <div class="cl-md-12">
+                        <strong><%= extractedcomment.author.username %></strong>
+                        <span class="pull-right"><%= moment(extractedcomment.createdAt).fromNow() %></span>
+                        <p>
+                            <%= extractedcomment.text %>
+                        </p>
+
+                        <% if(currentUser && extractedcomment.author.id.equals(currentUser._id))
+                            { %>
+                        <a class="btn btn-xs btn-warning"
+                            href="/foodFestival/<%= varFoodFest._id %>/comment/<%= extractedcomment._id%>/edit">
+                            Edit
+                        </a>
+
+                        <form id="delete_form"
+                            action="/foodFestival/<%- varFoodFest._id %>/comment/<%= extractedcomment._id %>?_method=DELETE"
+                            method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+                <% }); %>
+
+            </div>
+        </div>
+    </div>
+</div>
+</p>
+
+
+<%- include ("../partials/footer") %>

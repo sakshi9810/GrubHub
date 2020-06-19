@@ -1,0 +1,42 @@
+ 
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h2 style="text-align: center;">Edit <%= varedit.name %></h2>
+        
+        <div style="width: 30%; margin: 25px auto;">
+            
+            <p style="text-align: center;">Fill the entries required to edit Food Festival</p>
+            
+            <form action="/foodFestival/<%= varedit._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fest[name]" value="<%= varedit.name %>">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fest[location]" value="<%= varedit.location %>">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="number" name="fest[price]" value="<%= varedit.price %>" min="0.01" step="0.01">
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fest[image]" value="<%= varedit.image %>">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="fest[description]" value="<%= varedit.description %>">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn-btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            
+            <a href="/foodFestival">Go Back</a>
+        </div>
+    </div>
+</div>
+<%- include ("../partials/footer") %>
